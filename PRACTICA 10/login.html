@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inicia sesión en Read Books">
+    <meta name="author" content="Sara Romero">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Iniciar sesión | Read Books</title>
 </head>
+
 <body>
 
-<h1>Iniciar sesión</h1>
+<header class="cabecera">
+    <div class="header_container">
+        <a href="index.html">
+            <img class="logo_imagen" src="assets/images/logo.png" alt="Logo de la web">
+        </a>
+        <h1>Read Books</h1>
+    </div>
+</header>
 
-<form>
-    <label>Usuario:</label>
-    <input type="text">
+<main class="login_container">
 
-    <br><br>
+    <section class="login_card">
 
-    <label>Contraseña:</label>
-    <input type="password">
+        <h2>Iniciar sesión</h2>
+        <p class="login_subtexto">Accede a tu biblioteca personal</p>
 
-    <br><br>
+        <form id="loginForm" class="login_form">
 
-    <button type="submit">Entrar</button>
-</form>
+            <div class="input_group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario">
+            </div>
 
+            <div class="input_group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+
+            <div class="login_options">
+                <label class="checkbox">
+                    <input type="checkbox"> Recordarme
+                </label>
+
+                <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button type="submit" class="boton secundario login_btn">
+                Entrar
+            </button>
+
+        </form>
+
+        <p class="registro">
+            ¿No tienes cuenta?
+            <a href="#">Regístrate</a>
+        </p>
+
+    </section>
+</main>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
