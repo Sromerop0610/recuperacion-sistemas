@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const username = usuarioInput.value;
         const password = passwordInput.value;
 
-        // limpiar estilos de error
         usuarioInput.classList.remove("error");
         passwordInput.classList.remove("error");
 
@@ -23,17 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
+                body: JSON.stringify({ username, password })
             });
 
             const data = await response.json();
 
             if (data.success) {
+
+                // guardar sesión
                 localStorage.setItem("user", JSON.stringify(data.user));
+
                 window.location.href = "libro.html";
+
             } else {
                 usuarioInput.classList.add("error");
                 passwordInput.classList.add("error");
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         } catch (error) {
-            console.error("Error en login:", error);
+            console.error(error);
             alert("Error de conexión con el servidor");
         }
     });
