@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         passwordInput.classList.remove("error");
 
         try {
-            const response = await fetch("http://localhost:3000/api/login", {
+            const response = await fetch("https://localhost:3443/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

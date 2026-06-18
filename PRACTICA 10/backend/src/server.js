@@ -1,8 +1,10 @@
+const fs = require("fs");
+const https = require("https");
 const express = require("express");
 const app = express();
 const db = require("./db");
 
-const PORT = 3000;
+const PORT = 3443;
 
 app.use(express.json());
 
@@ -48,7 +50,7 @@ app.post("/api/login", (req, res) => {
 });
 
 /* ----------------------
-   REGISTER (NUEVO)
+   REGISTER
 ---------------------- */
 app.post("/api/register", (req, res) => {
     const { username, password } = req.body;
@@ -91,8 +93,13 @@ app.post("/api/register", (req, res) => {
 });
 
 /* ----------------------
-   START SERVER
+   HTTPS SERVER START
 ---------------------- */
-app.listen(PORT, () => {
-    console.log(`Servidor en http://localhost:${PORT}`);
+const options = {
+    key: fs.readFileSync("./certs/key.pem"),
+    cert: fs.readFileSync("./certs/cert.pem")
+};
+
+https.createServer(options, app).listen(PORT, () => {
+    console.log(`Servidor HTTPS en https://localhost:${PORT}`);
 });

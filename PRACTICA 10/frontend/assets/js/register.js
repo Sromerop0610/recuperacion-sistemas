@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value;
 
         try {
-            const res = await fetch("http://localhost:3001/api/register", {
+            const res = await fetch("https://localhost:3443/api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
